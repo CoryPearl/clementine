@@ -1,0 +1,288 @@
+[
+  {
+    "viewport": [
+      1440,
+      900
+    ],
+    "geometry": {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "scrollHeight": 900,
+      "download": {
+        "x": 74.875,
+        "y": 586.984375,
+        "width": 231.71875,
+        "height": 56,
+        "top": 586.984375,
+        "right": 306.59375,
+        "bottom": 642.984375,
+        "left": 74.875
+      },
+      "hero": {
+        "x": 720,
+        "y": 81,
+        "width": 645.125,
+        "height": 769,
+        "top": 81,
+        "right": 1365.125,
+        "bottom": 850,
+        "left": 720
+      }
+    },
+    "errors": [],
+    "install": true,
+    "film": true
+  },
+  {
+    "viewport": [
+      1280,
+      720
+    ],
+    "geometry": {
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "scrollHeight": 720,
+      "download": {
+        "x": 66.546875,
+        "y": 463.515625,
+        "width": 231.71875,
+        "height": 56,
+        "top": 463.515625,
+        "right": 298.265625,
+        "bottom": 519.515625,
+        "left": 66.546875
+      },
+      "hero": {
+        "x": 640,
+        "y": 85.5,
+        "width": 573.453125,
+        "height": 580,
+        "top": 85.5,
+        "right": 1213.453125,
+        "bottom": 665.5,
+        "left": 640
+      }
+    },
+    "errors": [],
+    "install": true,
+    "film": true
+  },
+  {
+    "viewport": [
+      1024,
+      768
+    ],
+    "geometry": {
+      "width": 1024,
+      "height": 768,
+      "scrollWidth": 1024,
+      "scrollHeight": 768,
+      "download": {
+        "x": 53.234375,
+        "y": 500.265625,
+        "width": 221.71875,
+        "height": 56,
+        "top": 500.265625,
+        "right": 274.953125,
+        "bottom": 556.265625,
+        "left": 53.234375
+      },
+      "hero": {
+        "x": 512,
+        "y": 81,
+        "width": 458.765625,
+        "height": 637,
+        "top": 81,
+        "right": 970.765625,
+        "bottom": 718,
+        "left": 512
+      }
+    },
+    "errors": [],
+    "install": true,
+    "film": true
+  },
+  {
+    "viewport": [
+      768,
+      1024
+    ],
+    "geometry": {
+      "width": 768,
+      "height": 1024,
+      "scrollWidth": 768,
+      "scrollHeight": 1024,
+      "download": {
+        "x": 39.921875,
+        "y": 588.34375,
+        "width": 221.71875,
+        "height": 56,
+        "top": 588.34375,
+        "right": 261.640625,
+        "bottom": 644.34375,
+        "left": 39.921875
+      },
+      "hero": {
+        "x": 384,
+        "y": 117.5,
+        "width": 344.078125,
+        "height": 820,
+        "top": 117.5,
+        "right": 728.078125,
+        "bottom": 937.5,
+        "left": 384
+      }
+    },
+    "errors": [],
+    "install": true,
+    "film": true
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "geometry": {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "scrollHeight": 844,
+      "download": {
+        "x": 23,
+        "y": 339.140625,
+        "width": 183.25,
+        "height": 48,
+        "top": 339.140625,
+        "right": 206.25,
+        "bottom": 387.140625,
+        "left": 23
+      },
+      "hero": {
+        "x": 23,
+        "y": 437.140625,
+        "width": 344,
+        "height": 312.265625,
+        "top": 437.140625,
+        "right": 367,
+        "bottom": 749.40625,
+        "left": 23
+      }
+    },
+    "errors": [],
+    "install": true,
+    "film": true
+  },
+  {
+    "viewport": [
+      375,
+      667
+    ],
+    "geometry": {
+      "width": 375,
+      "height": 667,
+      "scrollWidth": 375,
+      "scrollHeight": 667,
+      "download": {
+        "x": 23,
+        "y": 311.234375,
+        "width": 183.25,
+        "height": 48,
+        "top": 311.234375,
+        "right": 206.25,
+        "bottom": 359.234375,
+        "left": 23
+      },
+      "hero": {
+        "x": 23,
+        "y": 409.234375,
+        "width": 329,
+        "height": 180.078125,
+        "top": 409.234375,
+        "right": 352,
+        "bottom": 589.3125,
+        "left": 23
+      }
+    },
+    "errors": [],
+    "install": true,
+    "film": true
+  },
+  {
+    "viewport": [
+      320,
+      568
+    ],
+    "geometry": {
+      "width": 320,
+      "height": 568,
+      "scrollWidth": 320,
+      "scrollHeight": 568,
+      "download": {
+        "x": 23,
+        "y": 290.25,
+        "width": 167.625,
+        "height": 48,
+        "top": 290.25,
+        "right": 190.625,
+        "bottom": 338.25,
+        "left": 23
+      },
+      "hero": {
+        "x": 23,
+        "y": 389.25,
+        "width": 274,
+        "height": 144.75,
+        "top": 389.25,
+        "right": 297,
+        "bottom": 534,
+        "left": 23
+      }
+    },
+    "errors": [],
+    "install": true,
+    "film": true
+  },
+  {
+    "viewport": [
+      844,
+      390
+    ],
+    "geometry": {
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "scrollHeight": 390,
+      "download": {
+        "x": 33.75,
+        "y": 212.546875,
+        "width": 190.34375,
+        "height": 39,
+        "top": 212.546875,
+        "right": 224.09375,
+        "bottom": 251.546875,
+        "left": 33.75
+      },
+      "hero": {
+        "x": 449.078125,
+        "y": 45,
+        "width": 361.15625,
+        "height": 307,
+        "top": 45,
+        "right": 810.234375,
+        "bottom": 352,
+        "left": 449.078125
+      }
+    },
+    "errors": [],
+    "install": true,
+    "film": true
+  },
+  {
+    "reducedMotion": {
+      "paused": true,
+      "visibility": "hidden"
+    }
+  }
+]

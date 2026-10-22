@@ -1,0 +1,25 @@
+{
+  "duration": 20,
+  "assertions": [
+    {
+      "kind": "appearsBy",
+      "selector": "#hook-title",
+      "bySec": 1
+    },
+    {
+      "kind": "appearsBy",
+      "selector": "#demo-wheel",
+      "bySec": 5
+    },
+    {
+      "kind": "appearsBy",
+      "selector": "#demo-output",
+      "bySec": 10
+    },
+    {
+      "kind": "appearsBy",
+      "selector": "#outro-name",
+      "bySec": 18
+    }
+  ]
+}

@@ -1,0 +1,385 @@
+[
+  {
+    "name": "aom",
+    "version": "3.15.2",
+    "source": "https://aomedia.googlesource.com/aom.git",
+    "sha256": null,
+    "license": "\"BSD-2-Clause\"",
+    "recipe": "aom/aom.rb"
+  },
+  {
+    "name": "brotli",
+    "version": "1.2.0_1",
+    "source": "https://github.com/google/brotli/archive/refs/tags/v1.2.0.tar.gz",
+    "sha256": "816c96e8e8f193b40151dad7e8ff37b1221d019dbcb9c35cd3fadbfe6477dfec",
+    "license": "\"MIT\"",
+    "recipe": "brotli/brotli.rb"
+  },
+  {
+    "name": "cairo",
+    "version": "1.18.6",
+    "source": "https://cairographics.org/releases/cairo-1.18.6.tar.xz",
+    "sha256": "1c767308174337a74694da0f3ec069c271452163a1ef4540964c50c301f157d4",
+    "license": "any_of: [\"LGPL-2.1-only\", \"MPL-1.1\"]",
+    "recipe": "cairo/cairo.rb"
+  },
+  {
+    "name": "dav1d",
+    "version": "1.5.4",
+    "source": "https://code.videolan.org/videolan/dav1d/-/archive/1.5.4/dav1d-1.5.4.tar.bz2",
+    "sha256": "2abfb0c89212e6e4733a54e0ae509ec00a5b845a6360946f918806e14aedb011",
+    "license": "\"BSD-2-Clause\"",
+    "recipe": "dav1d/dav1d.rb"
+  },
+  {
+    "name": "exiftool",
+    "version": "13.55",
+    "source": "https://downloads.sourceforge.net/project/exiftool/Image-ExifTool-13.55.tar.gz",
+    "sha256": "5f4c81d34ad406538c2871ad72dbfceb5d9b412b2f16cbbeb4d712d270846667",
+    "license": "any_of: [\"Artistic-1.0-Perl\", \"GPL-1.0-or-later\"]",
+    "recipe": "exiftool/exiftool.rb"
+  },
+  {
+    "name": "ffmpeg",
+    "version": "9.0.1_1",
+    "source": "https://ffmpeg.org/releases/ffmpeg-9.0.1.tar.xz",
+    "sha256": "cf38e0e28c7e5605942c4a77755349b0145804a397af37eb1fb4c77cb237f635",
+    "license": "\"GPL-3.0-or-later\"",
+    "recipe": "ffmpeg/ffmpeg.rb"
+  },
+  {
+    "name": "fontconfig",
+    "version": "2.18.3",
+    "source": "https://gitlab.freedesktop.org/fontconfig/fontconfig/-/archive/2.18.3/fontconfig-2.18.3.tar.gz",
+    "sha256": "9ae01e1d53acdef56010c5451cd34aa41d325b2faccd8606448d8fa01b2496b3",
+    "license": "all_of: [",
+    "recipe": "fontconfig/fontconfig.rb"
+  },
+  {
+    "name": "freetype",
+    "version": "2.15.0",
+    "source": "https://downloads.sourceforge.net/project/freetype/freetype2/2.15.0/freetype-2.15.0.tar.xz",
+    "sha256": "93cd47eb719c325107f2d3cf087d06299e944c3b48a40b55537302304dea1dd5",
+    "license": "\"FTL\"",
+    "recipe": "freetype/freetype.rb"
+  },
+  {
+    "name": "fribidi",
+    "version": "1.0.17",
+    "source": "https://github.com/fribidi/fribidi/releases/download/v1.0.17/fribidi-1.0.17.tar.xz",
+    "sha256": "6949dcde27d41cebad1fd741fcafc36d55a1020d2d872d4a6eb3914caabbada2",
+    "license": "all_of: [\"GPL-2.0-or-later\", \"LGPL-2.1-or-later\"]",
+    "recipe": "fribidi/fribidi.rb"
+  },
+  {
+    "name": "gettext",
+    "version": "1.0",
+    "source": "https://ftpmirror.gnu.org/gnu/gettext/gettext-1.0.tar.gz",
+    "sha256": "85d99b79c981a404874c02e0342176cf75c7698e2b51fe41031cf6526d974f1a",
+    "license": "all_of: [",
+    "recipe": "gettext/gettext.rb"
+  },
+  {
+    "name": "glib",
+    "version": "2.90.1",
+    "source": "https://download.gnome.org/sources/glib/2.90/glib-2.90.1.tar.xz",
+    "sha256": "93c941aa17d5eb1d53fe838365f29a8b4e539c222a256d974ec8f30fc413e396",
+    "license": "\"LGPL-2.1-or-later\"",
+    "recipe": "glib/glib.rb"
+  },
+  {
+    "name": "gmp",
+    "version": "6.3.0",
+    "source": "https://ftpmirror.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz",
+    "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+    "license": "any_of: [\"LGPL-3.0-or-later\", \"GPL-2.0-or-later\"]",
+    "recipe": "gmp/gmp.rb"
+  },
+  {
+    "name": "graphite2",
+    "version": "1.3.15",
+    "source": "https://github.com/silnrsi/graphite/releases/download/1.3.15/graphite2-1.3.15.tgz",
+    "sha256": "c6bc8b4252724665297f7cad0c55897285c673f9b8e6db3522ace833593fe0b1",
+    "license": "any_of: [\"GPL-2.0-or-later\", \"LGPL-2.1-or-later\", \"MPL-1.1+\"]",
+    "recipe": "graphite2/graphite2.rb"
+  },
+  {
+    "name": "harfbuzz",
+    "version": "14.6.0",
+    "source": "https://github.com/harfbuzz/harfbuzz/releases/download/14.6.0/harfbuzz-14.6.0.tar.xz",
+    "sha256": "d07a007327277708a2a73ae437887cdbaf282937f6d03ca5467723e9099af586",
+    "license": "\"MIT\"",
+    "recipe": "harfbuzz/harfbuzz.rb"
+  },
+  {
+    "name": "imagemagick",
+    "version": "7.1.2-30",
+    "source": "https://github.com/ImageMagick/ImageMagick/releases/download/7.1.2-30/ImageMagick-7.1.2-30.7z",
+    "sha256": "3ef82a66a4b28af069ac4f826ed958c17ad9baac6393368db7ec6d5920f6be7d",
+    "license": "\"ImageMagick\"",
+    "recipe": "imagemagick/imagemagick.rb"
+  },
+  {
+    "name": "jpeg-turbo",
+    "version": "3.2.0",
+    "source": "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.2.0/libjpeg-turbo-3.2.0.tar.gz",
+    "sha256": "6f30092cef9fb839779646608f4ee14ae3cbac989c47fa05e841b0841f09878e",
+    "license": "all_of: [",
+    "recipe": "jpeg-turbo/jpeg-turbo.rb"
+  },
+  {
+    "name": "lame",
+    "version": "4.0",
+    "source": "https://downloads.sourceforge.net/project/lame/lame/4.0/lame-4.0.tar.gz",
+    "sha256": "3df5124d5ad3a98312ffd7ba6a9b36230e4f8a3e66d3ce0f425e336c32d216eb",
+    "license": "\"LGPL-2.0-or-later\"",
+    "recipe": "lame/lame.rb"
+  },
+  {
+    "name": "libdatrie",
+    "version": "0.2.14",
+    "source": "https://github.com/tlwg/libdatrie/releases/download/v0.2.14/libdatrie-0.2.14.tar.xz",
+    "sha256": "f04095010518635b51c2313efa4f290b7db828d6273e39b2b8858f859dfe81d5",
+    "license": "\"LGPL-2.1-or-later\"",
+    "recipe": "libdatrie/libdatrie.rb"
+  },
+  {
+    "name": "libde265",
+    "version": "1.1.1",
+    "source": "https://github.com/strukturag/libde265/releases/download/v1.1.1/libde265-1.1.1.tar.gz",
+    "sha256": "fd48a927e94ed74fc7ce8829d222b9d8599fcbfe8b6448ba66705babc56ab219",
+    "license": "\"LGPL-3.0-or-later\"",
+    "recipe": "libde265/libde265.rb"
+  },
+  {
+    "name": "libheif",
+    "version": "1.23.3",
+    "source": "https://github.com/strukturag/libheif/releases/download/v1.23.3/libheif-1.23.3.tar.gz",
+    "sha256": "11c1179e0e4bec33624b87f22ec42c1e993a40d946d44d26f9c431cf1456a863",
+    "license": "\"LGPL-3.0-or-later\"",
+    "recipe": "libheif/libheif.rb"
+  },
+  {
+    "name": "libpng",
+    "version": "1.6.59",
+    "source": "https://downloads.sourceforge.net/project/libpng/libpng16/1.6.59/libpng-1.6.59.tar.xz",
+    "sha256": "d80dd2a38a37f803cb9b6ac7b14bd6e74ddc3b654780a8380bdf93523fdb4389",
+    "license": "\"libpng-2.0\"",
+    "recipe": "libpng/libpng.rb"
+  },
+  {
+    "name": "librsvg",
+    "version": "2.63.3",
+    "source": "https://download.gnome.org/sources/librsvg/2.63/librsvg-2.63.3.tar.xz",
+    "sha256": "55311c2293612e4a2e38cd9bdb6160a1c85c158adc7c97e423e1e65949afb6a4",
+    "license": "\"LGPL-2.1-or-later\"",
+    "recipe": "librsvg/librsvg.rb"
+  },
+  {
+    "name": "libthai",
+    "version": "0.1.30",
+    "source": "https://linux.thai.net/pub/thailinux/software/libthai/libthai-0.1.30.tar.xz",
+    "sha256": "ddba8b53dfe584c3253766030218a88825488a51a7deef041d096e715af64bdd",
+    "license": "\"LGPL-2.1-or-later\"",
+    "recipe": "libthai/libthai.rb"
+  },
+  {
+    "name": "libtiff",
+    "version": "4.7.2",
+    "source": "https://download.osgeo.org/libtiff/tiff-4.7.2.tar.gz",
+    "sha256": "672bd7d10aee4606171afb864f3570b83340f6a33e2c186dc0512f7145ffdf6a",
+    "license": "\"libtiff\"",
+    "recipe": "libtiff/libtiff.rb"
+  },
+  {
+    "name": "libtool",
+    "version": "2.6.2",
+    "source": "https://ftpmirror.gnu.org/gnu/libtool/libtool-2.6.2.tar.xz",
+    "sha256": "2ef1067c16c97db930fd740cc9bc3d3ba9a583804ae5ac42cc3e8719e49e191e",
+    "license": "\"GPL-2.0-or-later\"",
+    "recipe": "libtool/libtool.rb"
+  },
+  {
+    "name": "libvmaf",
+    "version": "3.2.1",
+    "source": "https://github.com/Netflix/vmaf/archive/refs/tags/v3.2.1.tar.gz",
+    "sha256": "5df7386911bc15fd1ca783132528748d219768ae4fc5f8e0b61184f041648092",
+    "license": "\"BSD-2-Clause-Patent\"",
+    "recipe": "libvmaf/libvmaf.rb"
+  },
+  {
+    "name": "libvpx",
+    "version": "1.16.0",
+    "source": "https://github.com/webmproject/libvpx/archive/refs/tags/v1.16.0.tar.gz",
+    "sha256": "7a479a3c66b9f5d5542a4c6a1b7d3768a983b1e5c14c60a9396edc9b649e015c",
+    "license": "\"BSD-3-Clause\"",
+    "recipe": "libvpx/libvpx.rb"
+  },
+  {
+    "name": "libx11",
+    "version": "1.8.13",
+    "source": "https://www.x.org/archive/individual/lib/libX11-1.8.13.tar.gz",
+    "sha256": "acf0e7cd7541110e6330ecb539441a2d53061f386ec7be6906dfde0de2598470",
+    "license": "\"MIT\"",
+    "recipe": "libx11/libx11.rb"
+  },
+  {
+    "name": "libxau",
+    "version": "1.0.12",
+    "source": "https://www.x.org/archive/individual/lib/libXau-1.0.12.tar.xz",
+    "sha256": "74d0e4dfa3d39ad8939e99bda37f5967aba528211076828464d2777d477fc0fb",
+    "license": "\"MIT\"",
+    "recipe": "libxau/libxau.rb"
+  },
+  {
+    "name": "libxcb",
+    "version": "1.17.0",
+    "source": "https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.17.0.tar.xz",
+    "sha256": "599ebf9996710fea71622e6e184f3a8ad5b43d0e5fa8c4e407123c88a59a6d55",
+    "license": "\"MIT\"",
+    "recipe": "libxcb/libxcb.rb"
+  },
+  {
+    "name": "libxdmcp",
+    "version": "1.1.5",
+    "source": "https://www.x.org/archive/individual/lib/libXdmcp-1.1.5.tar.xz",
+    "sha256": "d8a5222828c3adab70adf69a5583f1d32eb5ece04304f7f8392b6a353aa2228c",
+    "license": "\"MIT\"",
+    "recipe": "libxdmcp/libxdmcp.rb"
+  },
+  {
+    "name": "libxext",
+    "version": "1.3.7",
+    "source": "https://www.x.org/archive/individual/lib/libXext-1.3.7.tar.gz",
+    "sha256": "6564608dc3b816b0cfddf0c7ddc62bc579055dd70b2f28113a618df2acb64189",
+    "license": "\"MIT\"",
+    "recipe": "libxext/libxext.rb"
+  },
+  {
+    "name": "libxrender",
+    "version": "0.9.13",
+    "source": "https://xorg.freedesktop.org/archive/individual/lib/libXrender-0.9.13.tar.gz",
+    "sha256": "bf264b683d1e49ff9a6bc03af13baa430a556d943731a2b1ac2439dae4fea205",
+    "license": "\"MIT\"",
+    "recipe": "libxrender/libxrender.rb"
+  },
+  {
+    "name": "little-cms2",
+    "version": "2.19.1",
+    "source": "https://downloads.sourceforge.net/project/lcms/lcms/2.19.1/lcms2-2.19.1.tar.gz",
+    "sha256": "bfc54f7bab59fbc921012014a8032e4cba4abd46db47d46b76416a8c0b2815c8",
+    "license": "\"MIT\"",
+    "recipe": "little-cms2/little-cms2.rb"
+  },
+  {
+    "name": "mpg123",
+    "version": "1.33.7",
+    "source": "https://www.mpg123.de/download/mpg123-1.33.7.tar.bz2",
+    "sha256": "31d0e35a4ca567ec9b5ebda6c3062bb4435d6d3eacd6ef0d95cadd7854dc03ee",
+    "license": "\"LGPL-2.1-only\"",
+    "recipe": "mpg123/mpg123.rb"
+  },
+  {
+    "name": "openssl@3",
+    "version": "3.6.3",
+    "source": "https://github.com/openssl/openssl/releases/download/openssl-3.6.3/openssl-3.6.3.tar.gz",
+    "sha256": "243a86649cf6f23eeb6a2ff2456e09e5d77dd9018a54d3d96b0c6bdd6ba6c7f1",
+    "license": "\"Apache-2.0\"",
+    "recipe": "openssl@3/openssl@3.rb"
+  },
+  {
+    "name": "opus",
+    "version": "1.6.1",
+    "source": "https://ftp.osuosl.org/pub/xiph/releases/opus/opus-1.6.1.tar.gz",
+    "sha256": "6ffcb593207be92584df15b32466ed64bbec99109f007c82205f0194572411a1",
+    "license": "\"BSD-3-Clause\"",
+    "recipe": "opus/opus.rb"
+  },
+  {
+    "name": "pandoc",
+    "version": "3.12.1",
+    "source": "https://github.com/jgm/pandoc/archive/refs/tags/3.12.1.tar.gz",
+    "sha256": "cf9b3725b90e471aa70c99ac3b351adcb6e40cd904d36fcbb0f70d712e135686",
+    "license": "\"GPL-2.0-or-later\"",
+    "recipe": "pandoc/pandoc.rb"
+  },
+  {
+    "name": "pango",
+    "version": "1.58.2",
+    "source": "https://download.gnome.org/sources/pango/1.58/pango-1.58.2.tar.xz",
+    "sha256": "342385b6ca3b7c73455d7c80a13b7dbe4489e00bc3bd4c5bd6ed4dce421e374a",
+    "license": "\"LGPL-2.0-or-later\"",
+    "recipe": "pango/pango.rb"
+  },
+  {
+    "name": "pcre2",
+    "version": "10.49",
+    "source": "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.49/pcre2-10.49.tar.bz2",
+    "sha256": "53c156e1ba416a20da8e65395daa132da0d80e76910424caca3fcdae7831d384",
+    "license": "\"BSD-3-Clause\"",
+    "recipe": "pcre2/pcre2.rb"
+  },
+  {
+    "name": "pixman",
+    "version": "0.46.4",
+    "source": "https://cairographics.org/releases/pixman-0.46.4.tar.gz",
+    "sha256": "d09c44ebc3bd5bee7021c79f922fe8fb2fb57f7320f55e97ff9914d2346a591c",
+    "license": "\"MIT\"",
+    "recipe": "pixman/pixman.rb"
+  },
+  {
+    "name": "svt-av1",
+    "version": "4.2.0",
+    "source": "https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v4.2.0/SVT-AV1-v4.2.0.tar.bz2",
+    "sha256": "512f2ea5649e3e76c2dddcc25c2556fb67a9582baaab207c9c96161c94659dad",
+    "license": "\"BSD-3-Clause\"",
+    "recipe": "svt-av1/svt-av1.rb"
+  },
+  {
+    "name": "webp",
+    "version": "1.6.0",
+    "source": "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz",
+    "sha256": "e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564",
+    "license": "\"BSD-3-Clause\"",
+    "recipe": "webp/webp.rb"
+  },
+  {
+    "name": "x264",
+    "version": "r3222",
+    "source": "https://code.videolan.org/videolan/x264.git",
+    "sha256": null,
+    "license": "\"GPL-2.0-or-later\"",
+    "recipe": "x264/x264.rb"
+  },
+  {
+    "name": "x265",
+    "version": "4.3",
+    "source": "https://github.com/Multicorewareinc/x265/releases/download/4.3/x265_4.3.tar.gz",
+    "sha256": "83c53e4c8bbb8f1e33ed59e10a7d621d1d7801ca853910c3eb41f038b8ffb121",
+    "license": "\"GPL-2.0-or-later\"",
+    "recipe": "x265/x265.rb"
+  },
+  {
+    "name": "xz",
+    "version": "5.8.4",
+    "source": "https://github.com/tukaani-project/xz/releases/download/v5.8.4/xz-5.8.4.tar.gz",
+    "sha256": "0014c7886930454fe8bd4228665b51af55eeae560ea135c9c4cd33f55b2591d9",
+    "license": "all_of: [",
+    "recipe": "xz/xz.rb"
+  },
+  {
+    "name": "zstd",
+    "version": "1.5.7_1",
+    "source": "https://github.com/facebook/zstd/archive/refs/tags/v1.5.7.tar.gz",
+    "sha256": "37d7284556b20954e56e1ca85b80226768902e2edabd3b649e9e72c0c9012ee3",
+    "license": "all_of: [",
+    "recipe": "zstd/zstd.rb"
+  },
+  {
+    "name": "LibreOffice",
+    "version": "26.8.1.1",
+    "source": "https://download.documentfoundation.org/libreoffice/src/26.8.1.1/",
+    "license": "MPL-2.0 and component licenses",
+    "recipe": null
+  }
+]

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://corypearl.github.io/clementine/sitemap.xml
