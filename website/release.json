@@ -1,15 +1,15 @@
 {
-  "version": "1.1.0-preview",
-  "appVersion": "1.1",
+  "version": "1.2.0-preview",
+  "appVersion": "1.2",
   "architecture": "arm64",
   "minimumMacOS": "26.0",
   "signing": "ad-hoc",
   "notarized": false,
-  "sha256": "d41965e2494dfb65a95afdcd2ed1ab66660bca7e6f2b03166f3c6650d22a7bc9",
-  "sizeBytes": 416595430,
-  "url": "https://github.com/CoryPearl/clementine/releases/download/v1.1.0-preview/Clementine.zip",
+  "sha256": "1580697b14cee82d92c3a63062b31976e7a7811f6924367a356f82a2c6deee66",
+  "sizeBytes": 416695951,
+  "url": "https://github.com/CoryPearl/clementine/releases/download/v1.2.0-preview/Clementine.zip",
   "checks": {
-    "swiftTestsPassed": 20,
+    "swiftTestsPassed": 31,
     "fullMatrixSkipped": true,
     "deepStrictSignature": true,
     "zipIntegrity": true
