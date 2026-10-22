@@ -207,7 +207,7 @@ struct Engine {
     }
     func perform(_ t:Tool,input:URL,all:[URL],options o:OperationOptions,work:URL) throws -> [URL] {
         let cat = Registry.category(input); let ext = Registry.ext(input)
-        let outExt = cat == .image ? (ext == "svg" ? "png" : ext) : ext
+        let outExt = cat == .image ? ((ext == "svg" || t == .removeBackground || (o.removeBackground && t == .editImage)) ? "png" : ext) : ext
         let output = named(input,outExt,work,suffix:" - \(t.title)")
         switch t {
         case .compress:
@@ -228,20 +228,7 @@ struct Engine {
                 for (key,value) in o.metadataTags where allowed.contains(key) && !value.isEmpty { args.append("-\(key)=\(value)") }
             }
             try run(try tool("exiftool"),args + [output.path])
-        case .editImage:
-            var filters = ["-evaluate","multiply",String(pow(2,o.exposure)),"-brightness-contrast","0x\((o.contrast-1)*100)","-modulate","100,\(o.saturation*100),100"]
-            if o.flipHorizontal { filters += ["-flop"] }; if o.flipVertical { filters += ["-flip"] }
-            if o.sharpness > 0 { filters += ["-unsharp","0x1+\(o.sharpness)+0"] }
-            if o.temperature != 0 { filters += ["-fill",o.temperature > 0 ? "#FFA040" : "#4080FF","-colorize","\(abs(o.temperature)*10)"] }
-            if o.vignette > 0 { filters += ["-background","black","-vignette","0x\(o.vignette*20)"] }
-            if o.effect == "Grayscale" { filters += ["-colorspace","gray"] }; if o.effect == "Sepia" { filters += ["-sepia-tone","80%"] }
-            filters += ["-rotate",String(o.rotation)]
-            try image(input,to:output,options:o,extra:filters)
-        case .cropImage:
-            guard o.width > 0, o.height > 0 else { throw ClementineError.message("Enter a crop width and height.") }
-            var cropOptions = o; cropOptions.width = 0; cropOptions.height = 0
-            try image(input,to:output,options:cropOptions,extra:["-crop","\(o.width)x\(o.height)+\(o.cropX)+\(o.cropY)","+repage"])
-        case .annotateImage,.redactImage,.frameImage:
+        case .editImage,.cropImage,.annotateImage,.redactImage,.frameImage,.removeBackground:
             try renderImage(input,to:output,tool:t,options:o)
         case .createCollage:
             try run(try tool("magick"),["montage","-font","/System/Library/Fonts/Supplemental/Arial.ttf"] + all.map(\.path) + ["-auto-orient","-thumbnail","600x600>","-tile","\(Int(ceil(sqrt(Double(all.count)))))x","-geometry","+12+12","-background",o.background,output.path])
@@ -253,14 +240,21 @@ struct Engine {
         case .extractArchive:
             let folder = work.appendingPathComponent(input.deletingPathExtension().lastPathComponent + " - Extracted")
             try extractArchive(input,to:folder); return [folder]
-        case .normalizeAudio: try media(input,to:output,options:o,audioFilters:["loudnorm=I=-16:TP=-1.5:LRA=11"])
+        case .normalizeAudio: try media(input,to:output,options:o,audioFilters:["volume=\(try normalizationGain(input))"])
         case .audioChannels: try media(input,to:output,options:o,audioFilters:["volume=\(pow(10,o.gain/20))"],extra:["-ac",String(o.channels)])
         case .muteVideo: try media(input,to:output,options:o,extra:["-an"])
         case .trimVideo,.trimAudio: try media(input,to:output,options:o)
         case .cropVideo:
             guard o.width > 0, o.height > 0 else { throw ClementineError.message("Enter crop dimensions.") }
+            let info = try probe(input)
+            let stream = (info["streams"] as? [[String:Any]] ?? []).first { $0["codec_type"] as? String == "video" } ?? [:]
+            var size = CGSize(width:stream["width"] as? Int ?? 0,height:stream["height"] as? Int ?? 0)
+            let side = (stream["side_data_list"] as? [[String:Any]] ?? []).compactMap { $0["rotation"] as? Int }.first ?? 0
+            let tags = stream["tags"] as? [String:String] ?? [:]
+            if abs(Int(tags["rotate"] ?? "") ?? side)%180 == 90 { size = CGSize(width:size.height,height:size.width) }
+            let rect = CropGeometry.pixelRect(options:o,size:size)
             var settings = o; settings.width = 0; settings.height = 0
-            try media(input,to:output,options:settings,videoFilters:["crop=\(o.width):\(o.height):\(o.cropX):\(o.cropY)"])
+            try media(input,to:output,options:settings,videoFilters:["crop=\(Int(rect.width)):\(Int(rect.height)):\(Int(rect.minX)):\(Int(rect.minY)):exact=1"])
         case .changeVideoSpeed:
             let rate = max(0.25,min(4,o.speed)); var factors:[Double] = []; var remaining = rate
             while remaining > 2 { factors.append(2); remaining /= 2 }; while remaining < 0.5 { factors.append(0.5); remaining /= 0.5 }; factors.append(remaining)

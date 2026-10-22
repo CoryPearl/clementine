@@ -75,7 +75,7 @@ extension Engine {
             guard part.write(to:out) else { throw ClementineError.message("Could not split the PDF.") }; result.append(out)
         }; return result
     }
-    func rasterizePDF(_ input:URL,to ext:String,work:URL,dpi:Double = 300) throws -> [URL] {
+    func rasterizePDF(_ input:URL,to ext:String,work:URL,dpi:Double = 300,quality:Double = 0.9) throws -> [URL] {
         guard let pdf = PDFDocument(url:input), !pdf.isLocked else { throw ClementineError.message("Cannot read the PDF.") }
         let folder = work.appendingPathComponent(input.deletingPathExtension().lastPathComponent + " - Pages")
         try FileManager.default.createDirectory(at:folder,withIntermediateDirectories:true)
@@ -89,21 +89,21 @@ extension Engine {
             ctx.translateBy(x:-bounds.minX,y:-bounds.minY); page.draw(with:.mediaBox,to:ctx)
             guard let image = ctx.makeImage() else { continue }
             let output = folder.appendingPathComponent(String(format:"Page %03d.%@",i+1,ext))
-            try writeCGImage(image,to:output)
+            try writeCGImage(image,to:output,quality:quality)
         }
         return [folder]
     }
-    func writeCGImage(_ image:CGImage,to output:URL) throws {
+    func writeCGImage(_ image:CGImage,to output:URL,quality:Double = 0.9) throws {
         let type = output.pathExtension == "jpg" ? "public.jpeg" : "public.png"
         guard let dest = CGImageDestinationCreateWithURL(output as CFURL,type as CFString,1,nil) else { throw ClementineError.message("Could not create the image output.") }
-        CGImageDestinationAddImage(dest,image,[kCGImageDestinationLossyCompressionQuality:0.9] as CFDictionary)
+        CGImageDestinationAddImage(dest,image,[kCGImageDestinationLossyCompressionQuality:max(0.05,min(1,quality))] as CFDictionary)
         guard CGImageDestinationFinalize(dest) else { throw ClementineError.message("Could not write the image.") }
     }
     func compressPDF(_ input:URL,to output:URL,quality:Double) throws {
         // Raster compression removes hidden original streams and gives predictable portable output.
         let folder = output.deletingLastPathComponent().appendingPathComponent("raster")
         try FileManager.default.createDirectory(at:folder,withIntermediateDirectories:true)
-        let pages = try rasterizePDF(input,to:"jpg",work:folder,dpi:quality < 50 ? 100 : 150)[0]
+        let pages = try rasterizePDF(input,to:"jpg",work:folder,dpi:72+max(10,min(100,quality))*0.9,quality:quality/100)[0]
         let images = try FileManager.default.contentsOfDirectory(at:pages,includingPropertiesForKeys:nil).sorted { $0.lastPathComponent < $1.lastPathComponent }
         try imagesPDF(images,to:output)
     }

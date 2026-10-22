@@ -2,7 +2,7 @@
 
 A native Swift menu-bar utility for offline file conversions, editing tools, and floating files. Built for this Apple silicon Mac. No accounts, subscriptions, conversion limits, or uploads.
 
-[Website](https://corypearl.github.io/clementine/) · [Download v1.1 preview](https://github.com/CoryPearl/clementine/releases/tag/v1.1.0-preview) · [Launch film](brag-output/brag.mp4)
+[Website](https://corypearl.github.io/clementine/) · [Download v1.2 preview](https://github.com/CoryPearl/clementine/releases/tag/v1.2.0-preview) · [Launch film](brag-output/brag.mp4)
 
 The current preview requires **Apple silicon and macOS 26+**. Download the ZIP, extract it, and move Clementine to Applications. This is an ad-hoc signed preview, **not Apple-notarized**; macOS may block its first launch. After attempting to open it, review the app's source and use System Settings → Privacy & Security → Open Anyway if you choose to run it. Its orange icon appears in the menu bar. The release includes a SHA-256 checksum.
 
@@ -26,9 +26,17 @@ Pages, Numbers, and Keynote are used for their native formats. Allow the macOS A
 
 Version 1.1 uses orange-tinted native Liquid Glass on macOS 26, rounded radial segments, a spring opening, a short fade-and-shrink close, and animated hover/mode changes. Reduce Motion removes these animations; Reduce Transparency provides opaque, readable surfaces. Static previews approximate the glass tint because backdrop effects require the live window compositor.
 
+## Live editing
+
+Version 1.2 replaces the editor's manual Preview step with an automatically updating canvas. Drag any crop border or one of eight handles, or drag inside the selection to move it. Pixel fields and the crop stay synchronized; arrow keys move by one pixel, Shift by ten.
+
+Photo adjustments, flips, rotation, annotations, blur/solid redaction and backgrounds update while editing. The canvas uses the same native image renderer as the full-resolution save. Compression refreshes the actual encoded image or PDF automatically after a short pause in input. Media playback applies trim boundaries, speed, video redaction, gain, channel mixing and audio bleeps without exporting an eight-second excerpt. File encoding still happens when saving.
+
+**Remove Background** is available from the image tools wheel, and as a toggle in Edit Photo and Add Background. It uses Apple's on-device subject segmentation. Removed backgrounds display as a checkerboard; transparent cutouts save as full-resolution PNG files. The first subject detection takes a moment; the result is cached while you continue editing. Photos with no recognizable foreground show a clear error instead of silently saving the original.
+
 ## Features
 
-The registry includes the reference's 275 conversion routes, 26 file tools, and six actions, plus HTML, Keynote, and Numbers inputs. See [coverage](docs/COVERAGE.md) for verification results and practical differences.
+The registry includes the reference's 275 conversion routes, 27 file tools, and six actions, plus HTML, Keynote, and Numbers inputs. See [coverage](docs/COVERAGE.md) for verification results and practical differences.
 
 Image tools include conversion, compression, cropping, color adjustments, annotation, backgrounds, local face/text detection, flattened redaction, metadata editing, QR/barcode reading, collages, and PDF creation. Media tools include playback, trimming, splitting, cropping, speed, normalization, channel conversion, muting, joining, snapshots, visualizers, and time-based redaction. PDF tools provide page images, editable document exports, OCR, splitting, merging, and page ordering/rotation. Archives support ZIP/TAR/GZIP conversion and RAR extraction.
 

@@ -23,7 +23,7 @@ struct OperationDescriptor: Identifiable, Hashable {
     var id: String; var title: String; var symbol: String; var detail: String = ""; var needsEditor = false
 }
 enum Tool: String, CaseIterable {
-    case compress, metadata, editImage, annotateImage, frameImage, cropImage, normalizeAudio, muteVideo, trimVideo, splitPDF, organizePDF, extractArchive, createPDF, mergePDF, cropVideo, changeVideoSpeed, joinVideos, videoSnapshots, splitVideo, audioToVideo, trimAudio, audioChannels, createCollage, redactImage, redactVideo, redactAudio
+    case compress, metadata, editImage, annotateImage, frameImage, cropImage, removeBackground, normalizeAudio, muteVideo, trimVideo, splitPDF, organizePDF, extractArchive, createPDF, mergePDF, cropVideo, changeVideoSpeed, joinVideos, videoSnapshots, splitVideo, audioToVideo, trimAudio, audioChannels, createCollage, redactImage, redactVideo, redactAudio
     var title: String { switch self {
     case .compress: return "Compress"; case .metadata: return "Metadata"; case .editImage: return "Edit Photo"; case .annotateImage: return "Annotate Photo"
     case .frameImage: return "Add Background"; case .cropImage: return "Crop Image"; case .normalizeAudio: return "Normalize Volume"; case .muteVideo: return "Remove Audio"
@@ -31,7 +31,7 @@ enum Tool: String, CaseIterable {
     case .createPDF: return "Create PDF"; case .mergePDF: return "Merge PDFs"; case .cropVideo: return "Crop Video"; case .changeVideoSpeed: return "Change Speed"
     case .joinVideos: return "Join Videos"; case .videoSnapshots: return "Video Snapshots"; case .splitVideo: return "Split Video"; case .audioToVideo: return "Audio Visualizer"
     case .trimAudio: return "Trim Audio"; case .audioChannels: return "Audio Channels"; case .createCollage: return "Create Collage"; case .redactImage: return "Redact Photo"
-    case .redactVideo: return "Redact Video"; case .redactAudio: return "Bleep Audio"
+    case .redactVideo: return "Redact Video"; case .redactAudio: return "Bleep Audio"; case .removeBackground: return "Remove Background"
     }}
     var symbol: String { switch self {
     case .compress: return "arrow.down.right.and.arrow.up.left"; case .metadata: return "tag"; case .editImage: return "slider.horizontal.3"
@@ -40,7 +40,7 @@ enum Tool: String, CaseIterable {
     case .splitPDF, .splitVideo: return "rectangle.split.2x1"; case .organizePDF: return "square.grid.2x2"; case .extractArchive: return "archivebox"
     case .createPDF: return "doc.badge.plus"; case .mergePDF: return "doc.on.doc"; case .changeVideoSpeed: return "speedometer"; case .joinVideos: return "film.stack"
     case .videoSnapshots: return "camera"; case .audioToVideo: return "waveform.path"; case .audioChannels: return "hifispeaker.2"
-    case .createCollage: return "rectangle.3.group"; case .redactImage, .redactVideo: return "eye.slash"; case .redactAudio: return "waveform.badge.minus"
+    case .createCollage: return "rectangle.3.group"; case .redactImage, .redactVideo: return "eye.slash"; case .redactAudio: return "waveform.badge.minus"; case .removeBackground: return "person.crop.rectangle"
     }}
     var descriptor: OperationDescriptor { .init(id: "tool:\(rawValue)", title: title, symbol: symbol, needsEditor: ![.muteVideo, .extractArchive, .createPDF, .mergePDF, .joinVideos, .createCollage].contains(self)) }
 }
@@ -83,7 +83,7 @@ enum Registry {
     static func tools(_ selection: FileSelection) -> [Tool] {
         guard !selection.urls.isEmpty else { return [] }
         switch selection.category {
-        case .image: return [.compress, .metadata, .editImage, .annotateImage, .frameImage, .cropImage, .redactImage, .createPDF] + (selection.urls.count > 1 ? [.createCollage] : [])
+        case .image: return [.compress, .metadata, .editImage, .annotateImage, .frameImage, .cropImage, .removeBackground, .redactImage, .createPDF] + (selection.urls.count > 1 ? [.createCollage] : [])
         case .audio: return [.compress, .metadata, .normalizeAudio, .trimAudio, .audioChannels, .redactAudio, .audioToVideo]
         case .video: return [.compress, .metadata, .trimVideo, .splitVideo, .cropVideo, .changeVideoSpeed, .muteVideo, .videoSnapshots, .redactVideo] + (selection.urls.count > 1 ? [.joinVideos] : [])
         case .pdf: return [.compress, .metadata, .splitPDF, .organizePDF] + (selection.urls.count > 1 ? [.mergePDF] : [])
@@ -103,12 +103,13 @@ enum Registry {
         return common.sorted().map { .init(id:"convert:\($0)",title:$0 == "gz" ? "GZIP" : $0.uppercased(),symbol:category($0).symbol,detail:"Convert to \($0.uppercased())") }
     }
 }
-struct OperationOptions: Sendable {
+struct OperationOptions: Sendable, Equatable {
     var quality = 82.0; var targetKB = 0.0; var width = 0; var height = 0; var cropX = 0; var cropY = 0
     var start = 0.0; var end = 0.0; var speed = 1.0; var channels = 2; var gain = 0.0
     var exposure = 0.0; var saturation = 1.0; var contrast = 1.0; var rotation = 0.0
     var temperature = 0.0; var sharpness = 0.0; var vignette = 0.0; var effect = "None"; var flipHorizontal = false; var flipVertical = false
     var gradient = false; var secondaryBackground = "#F7B675"; var metadataTags: [String:String] = [:]
+    var removeBackground = false
     var padding = 60; var radius = 24.0; var background = "#F4E7D8"; var backgroundImage = ""; var aspect = "Original"
     var annotation = ""; var annotationStyle = "Text"; var annotationSize = 42.0
     var rectangles: [CGRect] = []; var blur = false; var redactRanges = ""; var splitTimes = ""; var pageOrder = ""; var splitGroups = false; var pageRotations: [Int:Int] = [:]

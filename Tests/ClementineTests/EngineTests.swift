@@ -28,7 +28,7 @@ final class EngineTests:XCTestCase {
     func testReferenceConversionMatrixHas275Edges() {
         let inputs = Registry.images + Registry.audios + Registry.videos + ["gif","pdf","ppt","pptx","docx","pages","md","rtf","rtfd","textclipping","epub","txt"] + Registry.sheets + ["srt","vtt"] + Registry.archives
         XCTAssertEqual(inputs.reduce(0) { $0+Registry.outputs($1).count },275)
-        XCTAssertEqual(Tool.allCases.count,26); XCTAssertEqual(Registry.actions.count,6)
+        XCTAssertEqual(Tool.allCases.count,27); XCTAssertEqual(Registry.actions.count,6)
         for input in inputs { XCTAssertFalse(Registry.outputs(input).contains(input)); XCTAssertFalse(Registry.outputs(input).contains("xls")); XCTAssertFalse(Registry.outputs(input).contains("svg")) }
     }
     func testMixedSelectionUsesCommonOutputs() {

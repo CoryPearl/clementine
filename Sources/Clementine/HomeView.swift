@@ -28,7 +28,7 @@ struct HomeView:View {
                 shortcut("⌃","Actions", "Put it in its place")
                 Spacer()
                 HStack(spacing:6) { Circle().fill(Color.green).frame(width:6,height:6); Text("Everything stays on your Mac").font(.system(size:10)) }.foregroundStyle(.secondary)
-                Text("CLEMENTINE / 1.1").font(.system(size:9,weight:.medium,design:.monospaced)).tracking(1.6).foregroundStyle(.tertiary)
+                Text("CLEMENTINE / 1.2").font(.system(size:9,weight:.medium,design:.monospaced)).tracking(1.6).foregroundStyle(.tertiary)
             }.padding(24).frame(width:240).background(SidebarGlassBackground()).overlay(alignment:.trailing) { Rectangle().fill(.white.opacity(0.55)).frame(width:1).allowsHitTesting(false) }
             if app.showSettings { SettingsView(app:app) }
             else {
@@ -128,7 +128,7 @@ struct SettingsView:View {
                     HStack { Image(systemName:trusted ? "checkmark.shield" : "hand.raised"); Text(trusted ? "Accessibility is enabled" : "Enable Accessibility for global keyboard control"); Spacer(); Button("Enable…") { let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String:true]; _ = AXIsProcessTrustedWithOptions(options as CFDictionary); trusted = AXIsProcessTrusted() } }
                     Text("Pages, Numbers, and Keynote may request Automation permission when converting their native documents.").font(.caption).foregroundStyle(.secondary)
                 }.padding(10) }
-                GroupBox("About Clementine") { VStack(alignment:.leading,spacing:10) { Text("Version 1.1 · Native Swift · All processing happens on your Mac").font(.caption); Text("Clementine uses FFmpeg, ImageMagick, ExifTool, Pandoc, librsvg, LibreOffice, and their open-source dependencies.").font(.caption).foregroundStyle(.secondary); Button("Third-party notices") { let u = Bundle.main.resourceURL!.appendingPathComponent("Licenses"); NSWorkspace.shared.open(u) } }.padding(10).frame(maxWidth:.infinity,alignment:.leading) }
+                GroupBox("About Clementine") { VStack(alignment:.leading,spacing:10) { Text("Version 1.2 · Native Swift · All processing happens on your Mac").font(.caption); Text("Clementine uses FFmpeg, ImageMagick, ExifTool, Pandoc, librsvg, LibreOffice, and their open-source dependencies.").font(.caption).foregroundStyle(.secondary); Button("Third-party notices") { let u = Bundle.main.resourceURL!.appendingPathComponent("Licenses"); NSWorkspace.shared.open(u) } }.padding(10).frame(maxWidth:.infinity,alignment:.leading) }
             }.padding(32).padding(.top,18)
         }.frame(maxWidth:.infinity,maxHeight:.infinity).background(OrangeGlassBackdrop()).font(.system(size:12))
     }

@@ -77,3 +77,9 @@ Detailed machine-readable results are in `dist/verification/conversions.json` an
 ## Version 1.1 appearance update
 
 The conversion engines are unchanged. Four focused wheel tests pass, covering rounded drop geometry, gaps between segments, reopening during a closing animation, stale mouse-up dismissals, and immediate closing with Reduce Motion. Orange glass rendering uses AppKit/SwiftUI Liquid Glass on macOS 26. Static bitmap previews approximate the native material. Live GUI inspection is still blocked by Computer Use app access.
+
+## Version 1.2 live editing
+
+31 tests pass, including 11 new editor tests. Native crop mouse events publish changes during dragging; eight handles, border hit targets, pixel fields and saved crops share a bounded selection. Photo adjustments, framing, annotation and redaction share a native canvas/export renderer. The real-photo Vision integration check verifies transparent PNG output, original preservation and cached cutouts.
+
+Media uses native player processing rather than rendered excerpts: a 12-second fixture retains its duration, trim endpoints and rate update immediately, time-limited video redaction changes the correct frames, and audio gain/mono/bleep processing and tap attachment are tested. Image/PDF compression updates automatically. The full conversion matrix was not repeated; its earlier 259/16 results remain above. No Apple office apps were launched. Offscreen editor layouts were inspected; a complete manual native GUI session remains unverified.
